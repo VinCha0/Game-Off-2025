@@ -3,6 +3,22 @@ using UnityEngine;
 public class AudioVolumeDetection : MonoBehaviour
 {
     public int sampleWindow = 64;
+    private AudioClip microphoneClip;
+
+    private void Start()
+    {
+        MicrophoneToAudioClip();
+    }
+    public void MicrophoneToAudioClip()
+    {
+        string microphoneName = Microphone.devices[0];
+        microphoneClip = Microphone.Start(microphoneName,true,20,AudioSettings.outputSampleRate); //Number 20 is length of clip - may need to be increased later on
+    }
+
+    public float GetVolumeFromMicrophone()
+    {
+        return GetVolumeFromAudioClip(Microphone.GetPosition(Microphone.devices[0]), microphoneClip);
+    }
 
     public float GetVolumeFromAudioClip(int clipPosition,AudioClip clip)
     {
