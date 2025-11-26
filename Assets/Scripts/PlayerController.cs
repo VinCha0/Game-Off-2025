@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
 
     public float volumeSensitivity = 10;
     public float threshold = 0.1f;
-    //Physics
+    //Gameplay
     public Rigidbody2D body;
+    public GameObject AttackObject;
 
-    private void Update()
+    private void FixedUpdate()
     {
         float volume = detector.GetVolumeFromMicrophone() * volumeSensitivity;
 
@@ -20,16 +21,17 @@ public class PlayerController : MonoBehaviour
             volume = 0;
             if(body.gravityScale < 0)
             {
+                //Ascend
                 body.gravityScale = 0.1f;
+
+                AttackObject.SetActive(false);
             }
         }
         else
         {
+            //Descend
             body.gravityScale = -0.1f;
+            AttackObject.SetActive(true);
         }
-
-        //Ascending Controls
-        //body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocity.y * volume * -0.05f);
-
     }
 }
