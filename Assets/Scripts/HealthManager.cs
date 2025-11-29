@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class HealthManager : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
@@ -12,6 +13,7 @@ public class HealthManager : MonoBehaviour
 
     private void Die()
     {
-
+        //Load death screen
+        SceneManager.LoadScene("DeathScreen");
     }
 }
