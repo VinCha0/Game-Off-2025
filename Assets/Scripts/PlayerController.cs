@@ -6,12 +6,16 @@ public class PlayerController : MonoBehaviour
     public AudioSource source;
     public AudioVolumeDetection detector;
 
-    public float volumeSensitivity = 10;
+    public float volumeSensitivity;
     public float threshold = 0.1f;
     //Gameplay
     public Rigidbody2D body;
     public GameObject AttackObject;
 
+    private void Start()
+    {
+        volumeSensitivity = 18;
+    }
     private void FixedUpdate()
     {
         float volume = detector.GetVolumeFromMicrophone() * volumeSensitivity;

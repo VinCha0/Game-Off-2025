@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
         //Time
         time += Time.deltaTime;
 
-        fireRate = fireRate - time / 20000000;
+        fireRate = fireRate - time / 2000000;
 
         if (fireRate <= 0.35f)
         {

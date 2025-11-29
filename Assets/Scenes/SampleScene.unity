@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21becbe45f2923c488954a87f6442f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRate: 10
+  fireRate: 7
   shark: {fileID: 2094412548122259855, guid: dbcd156a9b48c5d478b31d966b3b307e, type: 3}
   enemySpawner1: {fileID: 965913686}
   enemySpawner2: {fileID: 1220272185}
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1718211288}
   detector: {fileID: 1915938589}
-  volumeSensitivity: 100
+  volumeSensitivity: 18
   threshold: 0.1
   body: {fileID: 1718211290}
   AttackObject: {fileID: 1488627988}
