@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float speed;
+    public Rigidbody2D body;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        body.linearVelocity = transform.right * speed;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Attack")
+        {
+            //Destroy self
+            Destroy(this);
+        }
     }
 }

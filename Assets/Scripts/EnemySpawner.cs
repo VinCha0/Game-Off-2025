@@ -3,11 +3,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     //Variables
-    public float fireRate = 4;
+    public float fireRate;
     private float time;
     private float cooldown = 2.5f;
     //Objects
     public GameObject shark;
+    public Transform enemySpawner1;
+    public Transform enemySpawner2;
+    public Transform enemySpawner3;
+    public Transform enemySpawner4;
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +43,23 @@ public class EnemySpawner : MonoBehaviour
     }
     void Fire()
     {
-        Instantiate(shark);
+        //Randomly pick asteroid or fireball to spawn at a random firepoint
+        int spawn = Random.Range(1, 4);
+        if (spawn == 1)
+        {
+            Instantiate(shark, enemySpawner1.position, enemySpawner1.rotation);
+        }
+        else if (spawn == 2)
+        {
+            Instantiate(shark, enemySpawner2.position, enemySpawner2.rotation);
+        }
+        else if (spawn == 3)
+        {
+            Instantiate(shark, enemySpawner3.position, enemySpawner3.rotation);
+        }
+        else if (spawn == 4)
+        {
+            Instantiate(shark, enemySpawner4.position, enemySpawner4.rotation);
+        }
     }
 }
